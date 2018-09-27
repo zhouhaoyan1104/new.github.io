@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待办事项</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+    <style>
+        #app{
+            width: 250px;
+            margin:0 auto;
+            font-size: 12px;
+        }
+        ul li h6{
+            display: inline-block;
+            float: left;
+        }
+        ul li button{
+            float:right;
+        }
+        ul{
+            margin-top: 20px;
+            padding:0;
+        }
+        ul li{
+            width: 208px;
+            border: 1px #cccccc solid;
+            display: inline-block;
+            list-style: none;
+            padding:10px;
+        }
+        input{
+            padding: 4px 30px 4px 10px;
+        }
+        .btn{
+            font-size: 12px;
+        }
+        .btn1{
+            background-color: deepskyblue;
+            color: #fff;
+            border: none;
+            padding: 6px;
+            margin-left: -10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app" class="text-center">
+        <h1>{{title}}</h1>
+        <input type="text" placeholder="接下来要做什么..." v-model="texts" @keyup.enter="fun">
+        <button class="btn1" @click="fun">添加</button>
+        <ul>
+            <li v-for="(a,index) in mess">
+                <h6 class="text-left">{{a.text}}</h6>
+                <button class="btn text-right" @click="fun1(index)">{{a.del}}</button>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
